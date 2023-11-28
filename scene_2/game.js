@@ -1,10 +1,21 @@
 document.onkeydown = showKey;
 document.onkeyup = hideKey;
 
+
+function test() {
+	move();
+	switch_scene(1);
+}
+
+function move() {
+	localStorage.setItem("x", player[1]);
+    localStorage.setItem("y", player[2]);
+}
+
 var player = [
     null,
     200,
-    200
+	200
 ];
 
 var moveLeft = 0;
@@ -12,6 +23,17 @@ var moveTop = 0;
 
 function init() {
     player[0] = document.getElementById('player');
+	player[1] = Number(localStorage.getItem("x"))
+	player[2] = Number(localStorage.getItem("y"))
+
+	if(player[1] === null) {
+		player[1] = 200;
+	}
+
+	if(player[2] === null) {
+		player[2] = 200;
+	}
+
 
     window.setInterval("update()",5);
 }
@@ -21,20 +43,18 @@ function update() {
         player[1] = player[1]+5;
     }else if(moveLeft === -1) {
         player[1] = player[1]-5;
-    }else {
-        player[1] = player[1]
     }
 
     if(moveTop === 1) {
         player[2] = player[2]+5;
     }else if(moveTop === -1) {
         player[2] = player[2]-5;
-    }else {
-        player[2] = player[2];
     }
 
     player[0].style.left = player[1]+'px';
     player[0].style.top = player[2]+'px';
+
+	console.log(player);
 }
 
 function showKey(e) {
