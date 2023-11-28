@@ -65,8 +65,6 @@ function update() {
 
     player[0].style.left = player[1]+'px';
     player[0].style.top = player[2]+'px';
-
-	console.log(player);
 }
 
 function showKey(e) {
