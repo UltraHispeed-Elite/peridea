@@ -2,11 +2,15 @@
 <html>
     <head>
         <title>The Path to Peridea</title>
+        <script src="game.js"></script>
+        <script src="map.js"></script>
+        <link href="game.css" rel="stylesheet"/>
     </head>
 
-    <body>
-        <script>
-            window.location.replace("scene_1/index.html");
-        </script>
+    <body onload="init()">
+        <div id="game">
+            <div id="map"></div>
+            <div id="player"></div>
+        </div>
     </body>
 </html> 
